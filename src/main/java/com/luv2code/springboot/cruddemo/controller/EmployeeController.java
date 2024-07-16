@@ -43,7 +43,7 @@ public class EmployeeController {
 
 	@GetMapping("/showFormUpdate")
 	public String showFormForUpdate(@RequestParam("employeeId") int id, Model model) {
-		
+
 		System.out.println(id);
 		System.out.println("Mano");
 
@@ -51,6 +51,12 @@ public class EmployeeController {
 		model.addAttribute("employee", employee);
 
 		return "employees/employee-form";
+	}
+
+	@GetMapping("/delete")
+	public String delete(@RequestParam("employeeId") int id) {
+		this.employeeService.deleteById(id);
+		return "redirect:/employees/list";
 	}
 
 	@PostMapping("/save")
