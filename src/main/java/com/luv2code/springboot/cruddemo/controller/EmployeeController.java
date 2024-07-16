@@ -43,6 +43,9 @@ public class EmployeeController {
 
 	@GetMapping("/showFormUpdate")
 	public String showFormForUpdate(@RequestParam("employeeId") int id, Model model) {
+		
+		System.out.println(id);
+		System.out.println("Mano");
 
 		Employee employee = this.employeeService.findById(id);
 		model.addAttribute("employee", employee);

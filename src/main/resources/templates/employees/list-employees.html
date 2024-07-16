@@ -31,7 +31,7 @@
 					<td th:text="${employee.lastName}" />
 					<td th:text="${employee.email}" />
 					<td>
-						<a th:href="@{/employees/showFormForAdd(employeeId=${employee.id})}"
+						<a th:href="@{/employees/showFormUpdate(employeeId=${employee.id})}"
 							class="btn btn-info btn-sm">Update</a>
 					</td>
 				</tr>
