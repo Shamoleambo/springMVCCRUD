@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.luv2code.springboot.cruddemo.entity.Employee;
 import com.luv2code.springboot.cruddemo.service.EmployeeService;
@@ -35,6 +36,15 @@ public class EmployeeController {
 	public String showFormForAdd(Model model) {
 
 		Employee employee = new Employee();
+		model.addAttribute("employee", employee);
+
+		return "employees/employee-form";
+	}
+
+	@GetMapping("/showFormUpdate")
+	public String showFormForUpdate(@RequestParam("employeeId") int id, Model model) {
+
+		Employee employee = this.employeeService.findById(id);
 		model.addAttribute("employee", employee);
 
 		return "employees/employee-form";
